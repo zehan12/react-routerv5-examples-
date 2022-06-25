@@ -3,6 +3,7 @@ import { Route, NavLink, Switch } from "react-router-dom";
 import Home from "./pages/Home";
 import Contact from "./pages/Contact";
 import About from "./pages/About";
+import PageNotFound from './pages/PageNotFound';
 
 function App() {
   return (
@@ -37,8 +38,11 @@ function App() {
         <Route path='/contact'>
           <Contact />
         </Route>
-        <Route path='/'>
+        <Route path='/' exact>
           <Home />
+        </Route>
+        <Route>
+            <PageNotFound />
         </Route>
       </Switch>
     </div>
