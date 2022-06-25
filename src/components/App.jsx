@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route, Link, Switch } from "react-router-dom";
+import { Route, NavLink, Switch } from "react-router-dom";
 import Home from "./pages/Home";
 import Contact from "./pages/Contact";
 import About from "./pages/About";
@@ -13,19 +13,19 @@ function App() {
                         text-blue-900 hover:text-blue-500
                         px-3 py-3 border-b-2 border-b-2-red-200 hover:border-blue-900 
                         ">
-            <Link to="/" >Home</Link>
+            <NavLink to="/" activeStyle={{ color: 'green' }} >Home</NavLink>
           </li>
           <li className="block md:inline-block 
                         text-blue-900 hover:text-blue-500 mx-20
                         px-3 py-3 border-b-2 hover:border-rose-500 
                         ">
-            <Link to="/contact" >Contact</Link>
+            <NavLink to="/contact" activeStyle={{ color: 'green' }} >Contact</NavLink>
           </li>
           <li className="block md:inline-block 
                         text-blue-900 hover:text-blue-500 
                         px-3 py-3 border-b-2 border-b-2-red-200 hover:border-blue-900 
                         ">
-            <Link to="/about" >About</Link>
+            <NavLink to="/about" activeStyle={{ color: 'green' }} >About</NavLink>
           </li>
         </ul>
       </nav>
