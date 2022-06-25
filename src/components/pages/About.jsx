@@ -1,7 +1,57 @@
 import React from "react";
+import { Link, Switch, Route, useRouteMatch, useParams } from 'react-router-dom';
+import Company from "./about/Company";
+import Experiance from "./about/Experiance";
+import Announcement from "./about/Announcement";
+
+function SubPage() {
+    let { anyIdNameYouLike } = useParams();
+     console.log(anyIdNameYouLike)
+     function getComponent( value ) {
+        switch ( value ) {
+            case "company":
+              return  <Company />
+            case "experiance":
+              return <Experiance />
+            case "announcement":
+                return <Announcement />
+            default:
+                break
+         }
+     }
+    return (
+        <div className="bg-red-200">
+            {getComponent(anyIdNameYouLike)}
+        </div>
+    );
+}
+
 
 export default function About() {
-    return (
+    let { path, url } = useRouteMatch();
+    return (<>
+        <nav>
+        <ul className='flex justify-center w-screen bg-rose-200 p-2'>
+          <li className="block md:inline-block 
+                        text-blue-900 hover:text-blue-500
+                        px-3 py-3 border-b-2 border-b-2-red-200 hover:border-blue-900 
+                        ">
+           <Link to={`${url}/company`}>Company</Link>
+          </li>
+          <li className="block md:inline-block 
+                        text-blue-900 hover:text-blue-500 mx-20
+                        px-3 py-3 border-b-2 hover:border-rose-500 
+                        ">
+           <Link to={`${url}/experiance`}>Experiance</Link>
+          </li>
+          <li className="block md:inline-block 
+                        text-blue-900 hover:text-blue-500 
+                        px-3 py-3 border-b-2 border-b-2-red-200 hover:border-blue-900 
+                        ">
+             <Link to={`${url}/announcement`}>Announcement</Link>
+          </li>
+        </ul>
+      </nav>
         <div className="relative bg-indigo-800">
         <div className="absolute inset-0">
           <img
@@ -19,5 +69,16 @@ export default function About() {
           </p>
         </div>
       </div>
+
+            <Switch>
+                <Route exact={true} path={path}>
+                    <h3>Please select a sub-page.</h3>
+                </Route>
+                <Route path={`${path}/:anyIdNameYouLike`}>
+                    <SubPage />
+                </Route>
+            </Switch>
+
+      </>
     )
 }
