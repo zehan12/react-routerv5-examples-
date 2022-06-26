@@ -72,7 +72,7 @@ export default function About() {
 
             <Switch>
                 <Route exact={true} path={path}>
-                    <h3>Please select a sub-page.</h3>
+                    <h3 className="mt-10 text-center text-5xl font-semibold text-gray-700">Please select a Page.</h3>
                 </Route>
                 <Route path={`${path}/:anyIdNameYouLike`}>
                     <SubPage />

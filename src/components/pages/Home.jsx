@@ -1,6 +1,8 @@
 import React from "react";
+import { withRouter } from 'react-router-dom';
 
-export default function Home() {
+
+function Home(){
     return (
  <div className="relative bg-red-400">
       <div className="absolute inset-0">
@@ -21,3 +23,5 @@ export default function Home() {
     </div>
     )
 }
+
+export default withRouter(Home);

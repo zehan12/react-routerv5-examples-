@@ -3,6 +3,7 @@ import { Route, NavLink, Switch } from "react-router-dom";
 import Home from "./pages/Home";
 import Contact from "./pages/Contact";
 import About from "./pages/About";
+import User from './pages/about/User';
 import PageNotFound from './pages/PageNotFound';
 
 function App() {
@@ -10,7 +11,7 @@ function App() {
     <div>
       <nav>
         <ul className='flex justify-center w-screen bg-fuchsia-200 p-2'>
-          <li className="block md:inline-block 
+          <li style={{color:"red"}} className="block md:inline-block 
                         text-blue-900 hover:text-blue-500
                         px-3 py-3 border-b-2 border-b-2-red-200 hover:border-blue-900 
                         ">
@@ -23,21 +24,36 @@ function App() {
             <NavLink to="/contact" activeStyle={{ color: 'green' }} >Contact</NavLink>
           </li>
           <li className="block md:inline-block 
-                        text-blue-900 hover:text-blue-500 
+                        text-blue-900 hover:text-blue-500 mr-10
                         px-3 py-3 border-b-2 border-b-2-red-200 hover:border-blue-900 
                         ">
             <NavLink to="/about" activeStyle={{ color: 'green' }} >About</NavLink>
+          </li>
+          <li className="block md:inline-block 
+                        text-blue-900 hover:text-blue-500 
+                        px-3 py-3 border-b-2 border-b-2-red-200 hover:border-blue-900 
+                        ">
+            <NavLink to={
+                          {
+                        pathname:"/user/zehan",
+                        state: {
+                          from:"root"
+                          }
+                        }
+                        } activeStyle={{ color: 'green' }} >User</NavLink>
           </li>
         </ul>
       </nav>
 
       <Switch>
-        <Route path='/about'>
-          <About />
+        <Route path='/about' component={About} >
+          {/* <About /> */}
         </Route>
-        <Route path='/contact'>
-          <Contact />
+        <Route path='/contact' component={Contact}>
+          {/* <Contact /> */}
         </Route>
+        <Route path='/user' component={User}></Route> 
+
         <Route path='/' exact>
           <Home />
         </Route>

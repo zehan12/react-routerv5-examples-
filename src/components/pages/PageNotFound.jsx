@@ -1,4 +1,20 @@
-export default function PageNotFound() {
+import { useHistory } from "react-router-dom";
+
+function HomeButton() {
+  let history = useHistory();
+
+  function handleClick() {
+    history.push("/");
+  }
+
+  return (
+    <button type="button" onClick={handleClick}>
+      Go home
+    </button>
+  );
+}
+
+function PageNotFound() {
     return (
       <>
         <main
@@ -17,10 +33,12 @@ export default function PageNotFound() {
               It looks like the page you’re looking for doesn't exist.
             </p>
             <div className="mt-6">
-                Better Luck Next Time
+               <HomeButton />
             </div>
           </div>
         </main>
       </>
     )
   }
+  
+  export default  PageNotFound;
