@@ -29,14 +29,14 @@ export default function Contact() {
             </div>
             {/* form */}
             <div className="container mx-auto">
-                <div class="max-w-xl p-5 mx-auto m3-10 bg-white rounded-md shadow-sm">
-                    <div class="text-center">
+                <div className="max-w-xl p-5 mx-auto m3-10 bg-white rounded-md shadow-sm">
+                    <div className="text-center">
                         <h1 className="mb-3 text-5xl font-semibold text-gray-700">Contact us</h1>
                     </div>
                     <div>
                     <Prompt when={hasUserEnteredData} message="Data will be lost" />
                         <form>
-                        <div class="mb-6">
+                        <div className="mb-6">
                         
                             <label>
                                 First Name:
@@ -61,7 +61,7 @@ export default function Contact() {
                                     onChange={(e) => setLastName(e.target.value)}
                                 />
                             </label>
-                            <div class="mb-6">
+                            <div className="mb-6">
                             <button className="w-full mt-10 px-2 py-4 text-white bg-indigo-500 rounded-md 
                                                 focus:bg-indigo-600 hover:bg-amber-400 focus:outline-none"
                              type="submit" style={{ width: '200px' }} disabled={true}>
